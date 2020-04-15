@@ -8,6 +8,7 @@ import 'package:bloc/bloc.dart';
 import 'model/weather.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   BlocSupervisor.delegate = await HydratedBlocDelegate.build();
   runApp(MyApp());
 }
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Hydrated Weather App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -42,7 +43,7 @@ class _WeatherPageState extends State<WeatherPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Fake Weather App"),
+        title: Text("Hydrated Weather App"),
       ),
       body: BlocProvider(
         builder: (context) => weatherBloc,
